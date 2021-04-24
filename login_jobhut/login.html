@@ -1,0 +1,255 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>JOBHUT - Login or Register</title>
+<link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel='stylesheet'>
+<link href='https://use.fontawesome.com/releases/v5.8.1/css/all.css' rel='stylesheet'>
+</head>
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-image: url('bkg1.jpg');
+    background-repeat: no-repeat;
+}
+
+.card {
+    margin-bottom: 20px;
+    border: none
+}
+
+.box {
+    width: 500px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #191919;
+    opacity: 0.9;
+    ;
+    text-align: center;
+    transition: 0.25s;
+    margin-top: 100px
+}
+
+.box input[type="text"],
+.box input[type="password"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 10px 10px;
+    width: 250px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s
+}
+
+.box h1 {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500
+}
+
+.box input[type="text"]:focus,
+.box input[type="password"]:focus {
+    width: 300px;
+    border-color: #2ecc71
+}
+
+.box a[type="submit"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #2ecc71;
+    padding: 14px 100px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer
+}
+
+.box a[type="submit"]:hover {
+    background: #2ecc71
+}
+
+.forgot {
+    text-decoration: underline
+}
+
+ul.social-network {
+    list-style: none;
+    display: inline;
+    margin-left: 0 !important;
+    padding: 0
+}
+
+ul.social-network li {
+    display: inline;
+    margin: 0 5px
+}
+
+.social-network a.icoFacebook:hover {
+    background-color: #3B5998
+}
+
+.social-network a.icoTwitter:hover {
+    background-color: #33ccff
+}
+
+.social-network a.icoGoogle:hover {
+    background-color: #BD3518
+}
+
+.social-network a.icoFacebook:hover i,
+.social-network a.icoTwitter:hover i,
+.social-network a.icoGoogle:hover i {
+    color: #fff
+}
+
+a.socialIcon:hover,
+.socialHoverClass {
+    color: #44BCDD
+}
+
+.social-circle li a {
+    display: inline-block;
+    position: relative;
+    margin: 0 auto 0 auto;
+    border-radius: 50%;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    font-size: 20px
+}
+
+.social-circle li i {
+    margin: 0;
+    line-height: 50px;
+    text-align: center
+}
+
+.social-circle li a:hover i,
+.triggeredHover {
+    transform: rotate(360deg);
+    transition: all 0.2s
+}
+
+.social-circle i {
+    color: #fff;
+    transition: all 0.8s;
+    transition: all 0.8s
+}
+</style>
+<body class='snippet-body' style="margin-top: 170px; margin-left: 950px;">
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <form class="box">
+                    <h1>Login to JoBHut</h1>
+                    <p class="text-muted"> Please enter your login and password!</p> 
+                    <input type="text" id="mailid" placeholder="Email Id"> 
+                    <input type="password" id="pass" placeholder="Password">
+                    <a onclick="resetPasswordFunction()" class="forgot text-muted" href="#">Forgot password?</a>
+                    <a onclick="LoginUser()" type="submit">Login</a>
+                    <a class="forgot text-muted">New to JobHut?</a><a href="signup.html"> SignUp here</a>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script>
+<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script> 
+<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyBfolJh1jLX-HV5CHALpcfBWGoqaQmPpno",
+    authDomain: "jobhut-948da.firebaseapp.com",
+    projectId: "jobhut-948da",
+    storageBucket: "jobhut-948da.appspot.com",
+    messagingSenderId: "230503556312",
+    appId: "1:230503556312:web:351d8c69932dd2ae8723ad"
+  };
+  firebase.initializeApp(firebaseConfig);
+//-------------------------------Register User---------------------------------//
+function RegisterUser() {
+      var email=document.getElementById('email').value;
+      var password=document.getElementById('password').value;
+      user_name = document.getElementById('name').value;
+      firebase.auth().createUserWithEmailAndPassword(email,password).then(function(){
+       var id=firebase.auth().currentUser.uid;
+       localStorage.setItem('id',id);
+		   name1 = email.substring(0, email.lastIndexOf("@"));
+		   firebase.database().ref('User/'+name1).set({
+            Name: user_name
+          });
+      window.alert('Successfully Signup!');
+      }).catch(function(error){
+   
+       var errorcode=error.code;
+       var errormsg=error.message;
+       window.alert("Error : " +errorMsg)
+       
+      });
+}
+//-------------------------------Login User---------------------------------//	
+function LoginUser(){
+  var email=document.getElementById('mailid').value;
+  var password=document.getElementById('pass').value;
+  firebase.auth().signInWithEmailAndPassword(email,password).then(function(){
+   var id=firebase.auth().currentUser.uid;
+   localStorage.setItem('id',id);
+   window.location.replace('../Choice Page/index.html');
+  }).catch(function(error){
+
+   var errorCode=error.code;
+   var errorMsg=error.message;
+   window.alert("Error : " +errorMsg)
+
+  });
+ }
+//--------------------------Reset Password---------------------------------//	
+ const mailField = document.getElementById('mailid');
+const labels = document.getElementsByTagName('label');
+const resetPassword = document.getElementById('resetPassword');
+const successModal = document.querySelector('.success');
+const failureModal = document.querySelector('.failure');
+const auth = firebase.auth();
+
+
+ const resetPasswordFunction = () => {
+    const email = mailField.value;
+    if(!email)
+    {
+        window.alert("Please enter a registered email");
+    }
+    else
+    {
+        
+        auth.sendPasswordResetEmail(email).then(() => {
+    
+        window.alert('Password Reset Email Sent Successfully!');
+    
+    }).catch(function(error){
+      
+        window.alert("Please enter a registered email");
+    });
+    }
+    }
+</script>
+</html>
