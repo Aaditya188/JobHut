@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>JobHut - Booking Page</title>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/noui/nouislider.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+
+
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form">
+				<span class="contact100-form-title">
+					Booking!!
+				</span>
+
+				<div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Name">
+					<span class="label-input100">FULL NAME *</span>
+					<input class="input100" id="f_name" type="text" placeholder="Enter Your Name" required aria-required="true">
+				</div>
+
+				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Enter Your Email (e@a.x)">
+					<span class="label-input100">Email *</span>
+					<input class="input100" id="email" type="email" placeholder="Enter Your Email " required aria-required="true">
+				</div>
+
+				<div class="wrap-input100 bg1 rs1-wrap-input100">
+					<span class="label-input100">Phone</span>
+					<input class="input100" id="mobile" type="number" placeholder="Enter Number Phone">
+				</div>
+
+				<div class="wrap-input100 input100-select bg1">
+					<span class="label-input100">Needed Services *</span>
+						<select id="ddlViewBy" class="js-select2">
+							<option>Please choose</option>
+							<option>Maid Services</option>
+							<option>Coolie Services</option>
+							<option>Tiffin Services</option>
+						</select>
+						<div id="dp" class="dropDownSelect2"></div>
+				</div>
+
+				<div class="w-full dis-none js-show-service">
+					<div class="wrap-contact100-form-radio">
+						<span class="label-input100">Till When you Want ?</span>
+						<div class="contact100-form-radio m-t-15">
+							<input class="input-radio100" id="radio1" type="radio" value="A Day" unchecked>
+							<label class="label-radio100" for="radio1">
+								A Day
+							</label>
+						</div>
+
+						<div class="contact100-form-radio">
+							<input class="input-radio100" id="radio2" type="radio" value="A Week" unchecked>
+							<label class="label-radio100" for="radio2">
+								A Week
+							</label>
+						</div>
+
+						<div class="contact100-form-radio">
+							<input class="input-radio100" id="radio3" type="radio" value="A month" unchecked>
+							<label class="label-radio100" for="radio3">
+								A month
+							</label>
+						</div>
+						<div class="wrap-input100 bg1 rs1-wrap-input100">
+							<span class="label-input100">Specify the Work</span>
+							<input class="input100" type="text" id="typeofwork" " placeholder="Mopping,Sweeping,etc..">
+						</div>
+						<span class="label-input100"><b>*We will contact you soon regarding prices</b></span>
+						<div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Address">
+							<span class="label-input100">Enter Address</span>
+							<input class="input100" type="text" id="add" placeholder="Enter Your Address">
+						</div>
+					</div>
+				</div>
+
+
+				<div class="w-full dis-none js-show-service2">
+					<div class="wrap-contact100-form-radio">
+						<span class="label-input100">Specify the no. of luggages?</span>
+						<div class="wrap-input100 bg1 rs1-wrap-input100">
+							<span class="label-input100">Large Size</span>
+							<input class="input100" type="number" id="l" placeholder="large">
+						</div>
+						<div class="wrap-input100 bg1 rs1-wrap-input100">
+							<span class="label-input100">Medium Size</span>
+							<input class="input100" type="number" id="m" placeholder="medium">
+						</div>
+						<div class="wrap-input100 bg1 rs1-wrap-input100">
+							<span class="label-input100">Hand Bag</span>
+							<input class="input100" type="number" id="h" placeholder="handbag">
+						</div>
+						<span class="label-input100">Specify the Date of Arrival</span>
+						<div class="wrap-input100 bg1 rs1-wrap-input100">
+							<span class="label-input100">Date of Arrival : </span>
+							<input class="input100" type="date" id="doa" placeholder="Date">
+						</div>
+                        <span class="label-input100">Enter Train Details</span>
+						<div class="wrap-input100 bg1 rs1-wrap-input100">
+							<span class="label-input100">Train No./ Train Name</span>
+							<input class="input100" type="text" id="tname" placeholder="Train No. / Train Name">
+						</div>
+						<div class="wrap-input100 bg1 rs1-wrap-input100">
+							<span class="label-input100">Bogey No. and Birth No.</span>
+							<input class="input100" type="text" id="bgno" placeholder="Bogey No. & Birth No.">
+						</div>
+						<div class="wrap-input100 bg1 rs1-wrap-input100">
+							<span class="label-input100">Enter Station Name</span>
+							<input class="input100" type="text" id="sname" placeholder="Station Name">
+						</div>
+					</div>
+				</div>
+
+
+				<div class="w-full dis-none js-show-service3">
+					<div class="wrap-contact100-form-radio">
+						<div class="wrap-input100 bg1 rs1-wrap-input100">
+							<span class="label-input100">Type of Meal</span>
+							<input class="input100" type="text" id="mealtype" placeholder="Veg / Non-Veg">
+						</div>
+						<span class="label-input100">Till when You Want Tiffin Service?</span>
+						<div class="contact100-form-radio m-t-15">
+							<input class="input-radio100" id="radio7" type="radio" value="A Day" unchecked>
+							<label class="label-radio100" for="radio7">
+								A Day ( 80 INR / 100 INR  )
+							</label>
+						</div>
+
+						<div class="contact100-form-radio">
+							<input class="input-radio100" id="radio8" type="radio" value="A Week" unchecked>
+							<label class="label-radio100" for="radio8">
+								A Week ( 525 INR / 665 INR ) 
+							</label>
+						</div>
+
+						<div class="contact100-form-radio">
+							<input class="input-radio100" id="radio9" type="radio" value="A Month" unchecked>
+							<label class="label-radio100" for="radio9">
+								A Month ( 2016 INR / 2576 INR )
+							</label>
+						</div>
+						<div class="wrap-input100 bg1 rs1-wrap-input100">
+							<span class="label-input100">Start Date : </span>
+							<input class="input100" id="sd" type="date" placeholder="Date">
+						</div>
+						<div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Address">
+							<span class="label-input100">Enter Address</span>
+							<input class="input100" type="text" id="addre" placeholder="Enter Your Address">
+						</div>
+					</div>
+				</div>
+
+				<div class="wrap-input100 validate-input bg0 rs1-alert-validate">
+					<span class="label-input100">Any Special Instruction?</span>
+					<textarea class="input100" id="msg" placeholder="Your message here..."></textarea>
+				</div>
+
+				<div class="container-contact100-form-btn">
+					<button onclick="insertdata('ddlViewBy')"  class="contact100-form-btn">
+						<span>
+							Submit
+							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+						</span>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+	<script>
+		$(".js-select2").each(function(){
+			$(this).select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $(this).next('.dropDownSelect2')
+			});
+
+
+			$(".js-select2").each(function(){
+				$(this).on('select2:close', function (e){
+					if($(this).val() == "Please chooses") {
+						$('.js-show-service').slideUp();
+						$('.js-show-service2').slideUp();
+						$('.js-show-service3').slideUp();
+					}
+					if($(this).val() == "Maid Services") {
+						$('.js-show-service3').slideUp();
+						$('.js-show-service2').slideUp();
+						$('.js-show-service').slideUp(); 
+						$('.js-show-service').slideDown();
+					}
+					if($(this).val() == "Coolie Services") {
+						$('.js-show-service3').slideUp();
+						$('.js-show-service').slideUp();
+						$('.js-show-service2').slideUp();
+						$('.js-show-service2').slideDown();
+					}
+					if($(this).val() == "Tiffin Services") {
+						$('.js-show-service').slideUp();
+						$('.js-show-service2').slideUp();
+						$('.js-show-service3').slideUp();
+						$('.js-show-service3').slideDown();
+					}
+				});
+			});
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/noui/nouislider.min.js"></script>
+	<script>
+	    var filterBar = document.getElementById('filter-bar');
+
+	    noUiSlider.create(filterBar, {
+	        start: [ 1500, 3900 ],
+	        connect: true,
+	        range: {
+	            'min': 1500,
+	            'max': 7500
+	        }
+	    });
+
+	    var skipValues = [
+	    document.getElementById('value-lower'),
+	    document.getElementById('value-upper')
+	    ];
+
+	    filterBar.noUiSlider.on('update', function( values, handle ) {
+	        skipValues[handle].innerHTML = Math.round(values[handle]);
+	        $('.contact100-form-range-value input[name="from-value"]').val($('#value-lower').html());
+	        $('.contact100-form-range-value input[name="to-value"]').val($('#value-upper').html());
+	    });
+	</script>
+<!--===============================================================================================-->
+<script src="https://www.gstatic.com/firebasejs/8.3.3/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-database.js"></script> 
+<script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-auth.js"></script>
+<script>
+var firebaseConfig = {
+	apiKey: "AIzaSyBfolJh1jLX-HV5CHALpcfBWGoqaQmPpno",
+	authDomain: "jobhut-948da.firebaseapp.com",
+	projectId: "jobhut-948da",
+	storageBucket: "jobhut-948da.appspot.com",
+	messagingSenderId: "230503556312",
+	appId: "1:230503556312:web:351d8c69932dd2ae8723ad"
+};
+firebase.initializeApp(firebaseConfig);
+</script>
+    <script src="js/main.js"></script>
+	<script src="firebase/firebase.js"></script>
+</body>
+</html>
