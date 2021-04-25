@@ -214,7 +214,7 @@ function LoginUser(){
   firebase.auth().signInWithEmailAndPassword(email,password).then(function(){
    var id=firebase.auth().currentUser.uid;
    localStorage.setItem('id',id);
-   window.location.replace('../Choice Page/index.html');
+   window.location.replace('../Choice/index.html');
   }).catch(function(error){
 
    var errorCode=error.code;
