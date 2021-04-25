@@ -37,6 +37,6 @@ We Forze present before you,<b>"JOBHUT"</b>- DO MORE... . We will be e helping y
 
 <h2 align= "left"><b>Our Product can be viewed at:-</b></h2>
 
-- Website Link : https://choosewisee.herokuapp.com/
-- Youtube Demo : https://youtu.be/ECtsacfm7CI
+- Website Link : 
+- Youtube Demo : 
 
