@@ -10,12 +10,16 @@ Our Approach : We decided to come up with a Solution which makes the lives of pe
 We Forze present before you,<b>"JOBHUT"</b>- DO MORE... . We will be e helping you with our coolies at railway station, maids at home, tiffin delivery services when you are tired and don't wish to cook. These services won't be free but would be completely worth the money.
 
 
-<h2 align= "left"><b>A Peek at our Website</b></h2>
+<h2 align= "left"><b>Website in a Print view</b></h2>
 
 <p align="left">
 
 <img width=40% src="Screenshots/Home.jpg"> &ensp;
 <img width=40% src="Screenshots/ChatBot.jpeg"> &ensp;
+
+
+## Presentation
+[PPT](https://drive.google.com/file/d/1kqKWkmLGT0XD-7vUlV8FsSA8OiObbJCF/view?usp=sharing)
 
 
 
@@ -30,3 +34,9 @@ We Forze present before you,<b>"JOBHUT"</b>- DO MORE... . We will be e helping y
 - Webkit Speech recognition API
 
 - Firebase Storage.
+
+<h2 align= "left"><b>Our Product can be viewed at:-</b></h2>
+
+- Website Link : https://choosewisee.herokuapp.com/
+- Youtube Demo : https://youtu.be/ECtsacfm7CI
+
