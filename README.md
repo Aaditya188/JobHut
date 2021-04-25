@@ -14,7 +14,7 @@ We Forze present before you,<b>"JOBHUT"</b>- DO MORE... . We will be e helping y
 
 <p align="left">
 
-<img width=40% src="Screenshots/Home.PNG"> &ensp;
+<img width=40% src="Screenshots/Home.jpg"> &ensp;
 <img width=40% src="Screenshots/ChatBot.jpeg"> &ensp;
 
 
