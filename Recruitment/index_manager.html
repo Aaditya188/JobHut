@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Manager Registration</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+
+
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form">
+				<span class="contact100-form-title">
+					MANAGER POST
+				</span>
+
+				<div class="wrap-input100 validate-input" data-validate="Name is required">
+					<span class="label-input100">Your Name</span>
+					<input class="input100" type="text" id="namem" placeholder="Enter your name">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="Age is required">
+					<span class="label-input100">Age</span>
+					<input class="input100" type="number" id="agem" placeholder="Enter your age">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Specify Gender">
+					<span class="label-input100">Gender</span>
+					<input class="input100" type="text" id="genderm" placeholder="Enter Gender">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<span class="label-input100">Email</span>
+					<input class="input100" type="text" id="emailm" placeholder="Enter your email addess">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="Contact Number is required">
+					<span class="label-input100">Contact Number</span>
+					<input class="input100" type="number" id="numberm" placeholder="Enter your contact number">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 input100-select">
+					<span class="label-input100">Which service would you like to apply for</span>
+					<div>
+						<select class="selection-2" id="servicem">
+							<option>Your choice</option>
+							<option>Coolie Services</option>
+							<option>Maid Services</option>
+							<option>Tiffin Services</option>
+						</select>
+						<div id="dropDownSelect1"></div>
+					</div>
+				</div>
+
+				<div class="wrap-input100 input100-select">
+					<span class="label-input100">Your Qualification Level</span>
+					<div>
+						<select class="selection-2" id="budgetm">
+							<option>Your choice</option>
+							<option>Primary Schooling</option>
+							<option>Secondary Schooling</option>
+							<option>Higher Secondary Schooling</option>
+							<option>Other</option>
+						</select>
+						<div id="dropDownSelect2"></div>
+					</div>
+				</div>
+
+				<div class="wrap-input100 validate-input" >
+					<span class="label-input100">In case of other please specify</span>
+					<input class="input100" type="text" id="qualificationm" placeholder="Qualification">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="Salary is required">
+					<span class="label-input100">Expected Salary</span>
+					<input class="input100" type="text" id="salarym" placeholder="Enter the salary you expect (in Rs.)">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Message is required">
+					<span class="label-input100">Why do you want to be hired for this job?</span>
+					<textarea class="input100" id="messagem" placeholder="Your message here..."></textarea>
+					<span class="focus-input100"></span>
+				</div>
+				
+				<div style="margin-left: 8px;">
+					<span class="label-input100" >Upload Your Resume Here</span>
+				<form action="/action_page.php">
+					<input type="file" id="myFile" name="filename" style="margin-left: 8px;">
+				</form>
+				<!-- <button type="button" class="btn btn-success" onclick="upload()" style="margin-left: 145px;">Upload</button> -->
+		        </div>
+
+				<div class="container-contact100-form-btn">
+					<div class="wrap-contact100-form-btn">
+						<div class="contact100-form-bgbtn"></div>
+						<a onclick="manager('servicem')" type="button" class="contact100-form-btn">
+							<span>
+								Submit
+							</span>
+						</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+		<script>
+			$(".selection-2").select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $('#dropDownSelect1')
+			});
+		</script>
+		<script>
+			$(".selection-2").select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $('#dropDownSelect2')
+			});
+		</script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="../Firebase/firebase.js"></script>
+
+	<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script> 
+	<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+	<script>
+	var firebaseConfig = {
+		apiKey: "AIzaSyBfolJh1jLX-HV5CHALpcfBWGoqaQmPpno",
+		authDomain: "jobhut-948da.firebaseapp.com",
+		projectId: "jobhut-948da",
+		storageBucket: "jobhut-948da.appspot.com",
+		messagingSenderId: "230503556312",
+		appId: "1:230503556312:web:351d8c69932dd2ae8723ad"
+	};
+	firebase.initializeApp(firebaseConfig);
+</script>
+</html>
