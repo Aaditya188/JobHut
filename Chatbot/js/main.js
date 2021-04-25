@@ -29,7 +29,7 @@ function showchatbotmsg(chatbotmsg){
 
 function chatbotvoice(message){
     const speech = new SpeechSynthesisUtterance();
-    speech.text = "I cannot understand your query , you can mail your quries at cookieclan@gmail.com , regards cookie bot.";
+    speech.text = "I cannot understand your query , you can mail your quries at forZe@gmail.com , regards cookie bot.";
     if(message.includes('who are you')){
         let finalresult = intro[Math.floor(Math.random() * intro.length)];
         speech.text = finalresult;
