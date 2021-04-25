@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Manager</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body onload="showContent()">
+<div class="area"></div><nav class="main-menu">
+            <ul>
+                <li>
+                    <a href="">
+                        <i class="fa fa-home fa-2x"></i>
+                        <span class="nav-text">
+                            Dashboard
+                        </span>
+                    </a>
+                  
+                </li>
+                <li class="has-subnav">
+                    <a href="#" onclick="busydisabled()">
+                       <i class="fa fa-list fa-2x"></i>
+                        <span class="nav-text">
+                            Available
+                        </span>
+                    </a>
+                    
+                </li>
+                <li class="has-subnav">
+                  <a href="#" onclick="avadisabled()">
+                     <i class="fa fa-list fa-2x"></i>
+                      <span class="nav-text">
+                          Busy
+                      </span>
+                  </a>
+                  
+              </li>
+            </ul>
+
+            <ul class="logout">
+                <li>
+                   <a onclick="logout()">
+                         <i class="fa fa-power-off fa-2x"></i>
+                        <span class="nav-text">
+                            Logout
+                        </span>
+                    </a>
+                </li>  
+            </ul>
+        </nav>
+<!-- partial -->
+<div class="container" id="avail">
+    <h2>Available</h2>
+    <div id="std" >
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Sr No.</th>
+          <th scope="col">Name</th>
+          <th scope="col" >Mobile No.</th>
+          <th scope="col">UID</th>
+        </tr>
+      </thead>
+      <tbody  id="app">
+        <tr></tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+  <template id="sample">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>
+        <label class="switch">
+          <input id="myCheck" type="checkbox" onclick="checktime()" checked>
+          <span class="slider round"></span>
+        </label>
+        <a>Available</a>
+      </td>
+    </tr>
+  </template>
+  
+  
+  <div class="container" id="busy">
+      <h2>Busy</h2>
+    <div id="std2" >
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Sr No.</th>
+          <th scope="col">Name</th>
+          <th scope="col" >Mobile No.</th>
+          <th scope="col">UID</th>
+        </tr>
+      </thead>
+      <tbody  id="app2">
+        <tr></tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+  <template id="sample1">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>
+        
+        <label class="switch">
+          <input id="myCheck1" type="checkbox" onclick="checktime()" checked>
+          <span class="slider round"></span>
+        </label>
+        <a>Busy</a>
+      </td>
+    </tr>
+  </template>
+  <div class="container">
+      <h2>Work</h2>
+    <div id="std" >
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Sr No.</th>
+          <th scope="col">Name</th>
+          <th scope="col" >Email ID</th>
+          <th scope="col" >Mobile No.</th>
+          <th scope="col">Train No.</th>
+          <th scope="col">Bogey No. and Seat No.</th>
+          <th scope="col">Arrival Date</th>
+          <th scope="col">Hand Bag</th>
+          <th scope="col">Large Bag</th>
+          <th scope="col">Medium Bag</th>
+          <th scope="col">Station Name</th>
+          <th scope="col">OTP</th>
+          <th scope="col">Worker Assigned</th>
+        </tr>
+      </thead>
+      <tbody  id="app3">
+        <tr></tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+  <template id="sample3">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>  
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </template>
+ <div class="container">
+    <h3>Assignment</h3>
+    <div style="display: inline-flex;">
+    <div>
+        <input class="form-control" type="text" id="cid" placeholder="Client ID" >
+    </div>
+    <div style="margin-left: 20px;">
+        <input class="form-control" type="text" id="wid" placeholder="Worker ID">
+    </div>
+</div>
+<di style="display: inline-table;margin-top: -20px;">
+    <button onclick="assignworker()" type="button" class="btn btn-success">Assign</button>
+</div>
+ </div>
+</body>
+<script>
+    function busydisabled(){
+        var x = document.getElementById('busy');
+        if(x.hidden==false){
+             x.hidden=true;
+        }
+        else
+        {
+            x.hidden=false;
+        }
+    }
+    function avadisabled(){
+        var x = document.getElementById('avail');
+        if(x.hidden==false){
+             x.hidden=true;
+        }
+        else
+        {
+            x.hidden=false;
+        }
+    }
+   function checktime(){
+        window.location.reload();
+   }
+
+  var flag = 0, ch, z;
+  function showContent(){
+  var Sr = 0;
+  var temp,copyHTML,td;
+  firebase.database().ref('Hiring/Worker/Coolie/').on('value', function(snapshot){
+    snapshot.forEach(function(childNodes){
+            temp = document.getElementById("sample").content;
+            copyHTML = document.importNode(temp,true);
+            temp1 = document.getElementById("sample1").content;
+            copyHTML1 = document.importNode(temp1,true);
+            if(childNodes.val().Status === "Free"){
+            td = copyHTML.querySelectorAll("td");
+            td[0].innerHTML = ++Sr;
+            td[1].innerHTML = childNodes.val().Name; 
+            td[2].innerHTML = childNodes.val().Mobile;
+            // ch = childNodes.val().Status;
+            td[3].innerHTML = childNodes.val().UID;
+            document.getElementById("app").appendChild(copyHTML);
+            }
+            if(childNodes.val().Status === "Busy"){
+            td = copyHTML1.querySelectorAll("td");
+            td[0].innerHTML = ++Sr;
+            td[1].innerHTML = childNodes.val().Name; 
+            td[2].innerHTML = childNodes.val().Mobile;
+            // ch = childNodes.val().Status;
+            td[3].innerHTML = childNodes.val().UID;
+            document.getElementById("app2").appendChild(copyHTML1);
+            }
+          });
+        });
+        var Sr = 0;
+var temp,copyHTML,td;
+firebase.database().ref('Booking/Coolie').on('value', function(snapshot){
+  snapshot.forEach(function(childNodes){
+          temp = document.getElementById("sample3").content;
+          copyHTML = document.importNode(temp,true);
+          td = copyHTML.querySelectorAll("td");
+          td[0].innerHTML = ++Sr;
+          td[1].innerHTML = childNodes.val().Name; 
+          td[2].innerHTML = childNodes.val().Email;
+          td[3].innerHTML = childNodes.val().Mobile;
+          td[4].innerHTML = childNodes.val().TrainName;
+          td[5].innerHTML = childNodes.val().BogeyNoBirthNo;
+          td[6].innerHTML = childNodes.val().Arrival;
+          td[7].innerHTML = childNodes.val().HandBags;
+          td[8].innerHTML = childNodes.val().LargeBags;
+          td[9].innerHTML = childNodes.val().MediumBags;
+          td[10].innerHTML = childNodes.val().SName;
+          td[11].innerHTML = childNodes.val().OTP;
+          td[12].innerHTML = childNodes.val().WorkerName;
+          document.getElementById("app3").appendChild(copyHTML);
+        });
+      });
+  }
+  // function box(ch){
+  //     if(ch === "Busy"){
+  //       uncheck();
+  // } 
+  // }
+  // function check() {
+  //   document.getElementById("myCheck1").checked = false;
+  // }
+  
+  // function uncheck() {
+  //   document.getElementById("myCheck1").checked = false;
+  // }
+  </script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script> 
+  <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+  <script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyBfolJh1jLX-HV5CHALpcfBWGoqaQmPpno",
+    authDomain: "jobhut-948da.firebaseapp.com",
+    projectId: "jobhut-948da",
+    storageBucket: "jobhut-948da.appspot.com",
+    messagingSenderId: "230503556312",
+    appId: "1:230503556312:web:351d8c69932dd2ae8723ad"
+  };
+  firebase.initializeApp(firebaseConfig);
+
+  function logout(){
+  auth.signOut().then(()=>{
+    location.replace("index.html");
+   })
+  }
+  var c, w, wname, cname, name1;
+  function Ready(){
+    c = document.getElementById('cid').value;
+    w = document.getElementById('wid').value;
+    name1 = c.substring(0, c.lastIndexOf("@"));
+  }
+  function assignworker(){
+    Ready();
+    worker();
+    client();
+    firebase.database().ref('Booking/Coolie/'+name1).update({
+      
+      WorkerName: wname
+    
+    });
+    firebase.database().ref('Hiring/Worker/Coolie/'+w).update({
+      
+      ClientName: cname
+    
+    });
+  }
+  function worker(){
+  firebase.database().ref('Hiring/Worker/Coolie/'+w).on('value',function(snapshot){
+      
+    wname = snapshot.val().Name; 
+    
+  });
+   }
+   function client(){
+  firebase.database().ref('Booking/Coolie/'+name1).on('value',function(snapshot){
+      
+    cname = snapshot.val().Name; 
+    
+  });
+   }
+  </script>
+</html>

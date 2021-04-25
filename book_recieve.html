@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Manager's Dashboard Table</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+</head>
+<style>
+  /* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(236, 13, 13);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+</style>
+<body onload="showContent()">
+
+    <div class="container">
+        <div id="std" >
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Sr No.</th>
+              <th scope="col">Name</th>
+              <th scope="col" >Email ID</th>
+              <th scope="col" >Mobile No.</th>
+              <th scope="col">Train No.</th>
+              <th scope="col">Bogey No. and Seat No.</th>
+              <th scope="col">Arrival Date</th>
+              <th scope="col">Hand Bag</th>
+              <th scope="col">Large Bag</th>
+              <th scope="col">Medium Bag</th>
+              <th scope="col">Station Name</th>
+              <th scope="col">OTP</th>
+            </tr>
+          </thead>
+          <tbody  id="app">
+            <tr></tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+      <template id="sample">
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>  
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </template>
+</body>
+
+<script>
+//   function timedRefresh(time) {
+//   setTimeout(() => {
+//     location.reload(true);
+//   }, time)
+// }
+// (() => {
+//   timedRefresh(5000);
+//   setTimeout(() => {
+//     document.getElementsByTagName("body")[0].style.backgroundColor = 'white';
+//   }, 50)
+// })();
+var flag = 0;
+function showContent(){
+var Sr = 0;
+var temp,copyHTML,td;
+firebase.database().ref('Booking/Coolie').on('value', function(snapshot){
+  snapshot.forEach(function(childNodes){
+          temp = document.getElementById("sample").content;
+          copyHTML = document.importNode(temp,true);
+          td = copyHTML.querySelectorAll("td");
+          td[0].innerHTML = ++Sr;
+          td[1].innerHTML = childNodes.val().Name; 
+          td[2].innerHTML = childNodes.val().Email;
+          td[3].innerHTML = childNodes.val().Mobile;
+          td[4].innerHTML = childNodes.val().TrainName;
+          td[5].innerHTML = childNodes.val().BogeyNoBirthNo;
+          td[6].innerHTML = childNodes.val().Arrival;
+          td[7].innerHTML = childNodes.val().HandBags;
+          td[8].innerHTML = childNodes.val().LargeBags;
+          td[9].innerHTML = childNodes.val().MediumBags;
+          td[10].innerHTML = childNodes.val().SName;
+          td[11].innerHTML = childNodes.val().OTP;
+          document.getElementById("app").appendChild(copyHTML);
+        });
+      });
+}
+</script>
+<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script> 
+<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+<script>
+var firebaseConfig = {
+  apiKey: "AIzaSyBfolJh1jLX-HV5CHALpcfBWGoqaQmPpno",
+  authDomain: "jobhut-948da.firebaseapp.com",
+  projectId: "jobhut-948da",
+  storageBucket: "jobhut-948da.appspot.com",
+  messagingSenderId: "230503556312",
+  appId: "1:230503556312:web:351d8c69932dd2ae8723ad"
+};
+firebase.initializeApp(firebaseConfig);
+</script>
+</html>
