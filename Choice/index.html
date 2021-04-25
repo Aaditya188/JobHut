@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<link href="" rel="icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main.css"> <title>Work or Hire</title>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-storage.js"></script> 
+	<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script> 
+ </head>
+
+ <body onload="clck()">
+ <div class="container">
+
+
+<div class="split left">
+
+<h1 style="color: black;">I want to Avail Service</h1>
+<a  href="../book_worker/index.html"  class="button" id="student" onclick="Ready1()" style="color: black; border:black solid 0.2rem;">Avail</a>
+
+</div>
+
+<div class="split right">
+
+<h1>I want to Work</h1>
+<a href="../Recruit_Choice/index.html" class="button" id="faculty" onclick="Ready2()">Work</a>
+
+</div>
+
+</div>
+
+<script src="main.js"></script>
+
+</body>
+<script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyBfolJh1jLX-HV5CHALpcfBWGoqaQmPpno",
+      authDomain: "jobhut-948da.firebaseapp.com",
+      projectId: "jobhut-948da",
+      storageBucket: "jobhut-948da.appspot.com",
+      messagingSenderId: "230503556312",
+      appId: "1:230503556312:web:351d8c69932dd2ae8723ad"
+      };
+      firebase.initializeApp(firebaseConfig);
+      // Initialize Firebase
+       var fname, rgno, dept, phone, mail,name1;
+    function clck(){
+  firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          var user = firebase.auth().currentUser;
+          if(user != null){
+            var email_id = user.email;
+            name1   = email_id.substring(0, email_id.lastIndexOf("@"));
+          } 
+        } 
+    });
+    }
+      function Ready1()
+         {
+
+        }
+</script>
+ </html>
