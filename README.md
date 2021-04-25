@@ -10,6 +10,14 @@ Our Approach : We decided to come up with a Solution which makes the lives of pe
 We Forze present before you,<b>"JOBHUT"</b>- DO MORE... . We will be e helping you with our coolies at railway station, maids at home, tiffin delivery services when you are tired and don't wish to cook. These services won't be free but would be completely worth the money.
 
 
+<h2 align= "left"><b>A Peek at our Website</b></h2>
+
+<p align="left">
+
+<img width=40% src="Screenshots/Home.PNG"> &ensp;
+<img width=40% src="Screenshots/ChatBot.jpeg"> &ensp;
+
+
 
 
 
